@@ -4,51 +4,144 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Penjadwalan Proyek Aplikasi Mobile Kantin FT</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#FCF8F4;--navy:#0B0B4A;--purple:#5B4BE0;--coral:#FF6B6B;--yellow:#FFB41C;--green:#2DE07A;--sky:#B9DCF7;--line:#d9d4e6}
+:root{
+  --bg:#FCF6F5;
+  --navy:#0D0C4A;
+  --purple:#5B4BE0;
+  --coral:#FF6868;
+  --coral-deep:#F25757;
+  --yellow:#FFB41C;
+  --green:#2DE07A;
+  --sky:#B8DCF7;
+  --line:#DFD8E8;
+  --ink:#1F1E33;
+  --muted:#68668A;
+}
 *{box-sizing:border-box;margin:0}
 body{font-family:Poppins,"Segoe UI",Arial,sans-serif;color:var(--navy);-webkit-print-color-adjust:exact;print-color-adjust:exact}
-@media screen{html{background:#D1D5DB}.deckwrap{display:flex;flex-direction:column;align-items:center;gap:24px;padding:24px 0}.slide{box-shadow:0 8px 30px rgba(0,0,0,.18)}}
-.slide{width:1280px;height:720px;position:relative;flex:none;padding:64px 80px 84px;overflow:hidden;background:var(--bg);break-after:page}
+@media screen{
+  html{background:#D1D5DB}
+  .deckwrap{display:flex;flex-direction:column;align-items:center;gap:24px;padding:24px 0}
+  .slide{box-shadow:0 12px 36px rgba(13,12,74,.14)}
+}
+.slide{
+  width:1280px;height:720px;position:relative;flex:none;
+  padding:60px 80px 84px;overflow:hidden;background:var(--bg);break-after:page;
+}
 .slide:last-child{break-after:auto}
-.foot{position:absolute;left:80px;right:80px;bottom:22px;height:36px;border-top:2px solid var(--line);display:flex;align-items:center;justify-content:space-between;font-size:14px;color:#6b6b8f;z-index:2}.foot b{color:var(--navy)}
-h1{font-size:76px;line-height:1.05;font-weight:700}
-h1 span{font-weight:300;display:block}
-h2{font-size:40px;font-weight:700;margin-bottom:6px;position:relative;z-index:2}
-.sub{font-size:18px;font-weight:300;margin-bottom:24px;position:relative;z-index:2}
-p,li,td,th{font-size:19px;line-height:1.45}
-.pill{display:inline-block;background:var(--coral);color:#fff;padding:16px 56px;border-radius:40px;font-size:22px;margin-top:34px}
-.sh{position:absolute;pointer-events:none}
-.tri{width:0;height:0;border-left:var(--s) solid transparent;border-right:var(--s) solid transparent;border-bottom:calc(var(--s)*1.7) solid var(--c)}
+
+/* Subtle architectural wireframe background rects like ui-design.png */
+.wf-box{
+  position:absolute;pointer-events:none;border:1px solid rgba(13,12,74,.06);z-index:0;
+}
+
+.foot{
+  position:absolute;left:80px;right:80px;bottom:22px;height:36px;
+  border-top:1.5px solid var(--line);display:flex;align-items:center;
+  justify-content:space-between;font-size:14px;color:var(--muted);z-index:3;
+}
+.foot b{color:var(--navy);font-weight:600}
+
+h1{font-size:70px;line-height:1.06;font-weight:700;letter-spacing:-0.02em;color:var(--navy)}
+h1 span{font-weight:300;display:block;letter-spacing:-0.015em}
+h2{font-size:38px;font-weight:700;margin-bottom:6px;position:relative;z-index:2;letter-spacing:-0.015em;color:var(--navy)}
+.sub{font-size:18px;font-weight:300;margin-bottom:22px;position:relative;z-index:2;color:#27265C;max-width:1040px}
+p,li,td,th{font-size:18.5px;line-height:1.45}
+
+/* Coral pill styled after ui-design.png */
+.pill{
+  display:inline-block;background:var(--coral);color:#fff;
+  padding:14px 32px;border-radius:40px;font-size:16px;margin-top:32px;
+  box-shadow:0 8px 20px rgba(255,104,104,.24);
+}
+
+/* Geometric SVG & CSS accents */
+.sh{position:absolute;pointer-events:none;z-index:1}
 .dot{border-radius:50%;background:var(--c);width:var(--s);height:var(--s)}
 .ring{border-radius:50%;border:3px solid var(--c);width:var(--s);height:var(--s)}
-.sq{width:var(--s);height:var(--s);background:var(--c);box-shadow:-10px 10px 0 var(--navy)}
-.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 22px;position:relative;z-index:2}
-.card.bar{border-top:12px solid var(--purple);padding-top:12px}
+
+/* Cards styled like clean UI windows / flat vector cards */
+.card{
+  background:#fff;border:1.5px solid var(--line);border-radius:16px;
+  padding:18px 22px;position:relative;z-index:2;
+  box-shadow:0 4px 14px rgba(13,12,74,.04);
+}
+.card.bar{
+  border-top:12px solid var(--purple);padding-top:14px;
+}
 .grid{display:grid;gap:18px;position:relative;z-index:2}
-.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:1fr 1fr}
-table{border-collapse:separate;border-spacing:0;width:100%;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;position:relative;z-index:2}
-th{background:var(--purple);color:#fff;font-weight:600;text-align:left}
-th,td{padding:9px 14px;border-bottom:1px solid #eee;font-size:17px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:1fr 1fr}
+
+/* Tables styled like the UI window in ui-design.png */
+table{
+  border-collapse:separate;border-spacing:0;width:100%;background:#fff;
+  border:1.5px solid var(--line);border-radius:14px;overflow:hidden;
+  position:relative;z-index:2;box-shadow:0 6px 18px rgba(13,12,74,.05);
+}
+th{background:var(--purple);color:#fff;font-weight:600;text-align:left;font-size:16.5px}
+th,td{padding:9px 15px;border-bottom:1px solid #EFEBF5;font-size:16.5px}
 tr:last-child td{border-bottom:0}
-td.n,th.n{text-align:right}td.c,th.c{text-align:center}
-.big{font-size:60px;font-weight:700;line-height:1}
-.lbl{font-size:16px;font-weight:300}
-.note{font-size:15px;font-weight:300;margin-top:14px;position:relative;z-index:2}
-.step{flex:1;background:var(--purple);color:#fff;padding:22px 16px 22px 34px;clip-path:polygon(0 0,88% 0,100% 50%,88% 100%,0 100%,10% 50%);min-height:150px}
-.step b{display:block;font-size:19px;margin-bottom:6px}.step span{font-size:15px;font-weight:300}
-.row{display:flex;gap:6px;position:relative;z-index:2}
-.g{background:var(--purple);border-radius:6px;height:26px}
-.gt td{padding:7px 8px}.gt td:first-child{font-size:16px;white-space:nowrap}
-.gt .p{background:var(--purple);box-shadow:inset 0 0 0 4px #fff}
-.gt .m{color:var(--coral);font-size:26px;text-align:center;line-height:1}
-.hot{background:#fff0ee;font-weight:700}
+td.n,th.n{text-align:right}
+td.c,th.c{text-align:center}
+
+.big{font-size:58px;font-weight:700;line-height:1;margin-bottom:6px}
+.lbl{font-size:15.5px;font-weight:300;line-height:1.45}
+.lbl b{font-weight:600}
+.note{font-size:15px;font-weight:300;margin-top:14px;position:relative;z-index:2;color:#27265C}
+
+/* Process chevrons */
+.step{
+  flex:1;background:var(--purple);color:#fff;padding:22px 18px 22px 36px;
+  clip-path:polygon(0 0,88% 0,100% 50%,88% 100%,0 100%,10% 50%);
+  min-height:152px;display:flex;flex-direction:column;justify-content:center;
+}
+.step b{display:block;font-size:19px;margin-bottom:6px;font-weight:600}
+.step span{font-size:15px;font-weight:300;line-height:1.35}
+.row{display:flex;gap:8px;position:relative;z-index:2}
+
+/* WBS slider-inspired bars */
+.g-track{
+  width:100%;height:20px;background:#F6F3FA;border:1.5px solid var(--line);
+  border-radius:999px;padding:2px;display:flex;align-items:center;
+}
+.g{
+  background:var(--purple);border-radius:999px;height:100%;position:relative;
+  display:flex;align-items:center;justify-content:flex-end;
+}
+.g::after{
+  content:"";width:12px;height:12px;border-radius:50%;background:var(--green);
+  border:2px solid var(--navy);margin-right:1px;flex:none;
+}
+.g.coral::after{background:var(--yellow)}
+
+/* Gantt table */
+.gt td{padding:7px 8px}
+.gt td:first-child{font-size:16px;white-space:nowrap}
+.gt .p{background:var(--purple);box-shadow:inset 0 0 0 4px #fff;border-radius:8px}
+.gt .m{color:var(--coral);font-size:24px;text-align:center;line-height:1}
+.hot{background:#FFF0EE;font-weight:700}
+
+/* Dependency chain */
 .chain{display:flex;align-items:center;gap:10px;position:relative;z-index:2;margin:10px 0 20px}
-.nd{background:#fff;border:2px solid var(--purple);border-radius:12px;padding:10px 12px;text-align:center;font-size:15px;line-height:1.3}
-.nd b{display:block;font-size:20px}.nd.p2{background:var(--purple);color:#fff}
+.nd{
+  background:#fff;border:2px solid var(--purple);border-radius:14px;
+  padding:10px 12px;text-align:center;font-size:14.5px;line-height:1.32;
+  box-shadow:0 4px 12px rgba(91,75,224,.08);
+}
+.nd b{display:block;font-size:18.5px;margin-bottom:2px}
+.nd.p2{background:var(--purple);color:#fff;box-shadow:0 6px 14px rgba(91,75,224,.22)}
 .ar{font-size:24px;color:var(--coral);font-weight:700}
 .par{display:flex;flex-direction:column;gap:8px}
+
+/* Status cards on slide 11 */
+.status-card{
+  flex:1;text-align:center;font-weight:600;font-size:17px;
+  border-top:6px solid var(--line);
+}
+
 @page{size:1280px 720px;margin:0}
 </style>
 </head>
@@ -57,237 +150,394 @@ td.n,th.n{text-align:right}td.c,th.c{text-align:center}
 
 <!-- 1 JUDUL -->
 <section class="slide">
-<div class="sh tri" style="--s:70px;--c:var(--purple);left:36px;top:-20px"></div>
-<div class="sh dot" style="--s:100px;--c:var(--coral);left:56px;bottom:-40px"></div>
-<div class="sh dot" style="--s:70px;--c:var(--green);left:-28px;bottom:50px"></div>
-<div class="sh ring" style="--s:84px;--c:var(--purple);right:130px;top:36px"></div>
-<div class="sh sq" style="--s:104px;--c:var(--yellow);right:44px;top:100px"></div>
-<div class="sh tri" style="--s:52px;--c:var(--sky);right:80px;bottom:60px"></div>
-<div style="position:absolute;left:84px;top:50px"><b style="font-size:26px">Software Scheduling</b><br><span style="font-size:20px;font-weight:300">26 November 2026</span></div>
-<div style="position:absolute;left:80px;top:200px;width:760px">
-<h1>Penjadwalan Proyek pada<span>Aplikasi Kantin FT</span></h1>
-<div class="pill" style="font-size:15px;padding:12px 28px;line-height:1.45;text-align:left"><b>Kelompok:</b><br>- Nathanael Satya Saputra (24/534424/TK/59236)</div>
-</div>
+  <!-- Subtle architectural wireframe rectangles -->
+  <div class="wf-box" style="left:504px;top:-2px;width:272px;height:48px"></div>
+  <div class="wf-box" style="left:82px;bottom:14px;width:265px;height:66px"></div>
+
+  <!-- Top-left 3D wireframe purple pyramid + floating accents (like ui-design.png) -->
+  <svg class="sh" style="left:22px;top:-8px" width="180" height="190" viewBox="0 0 180 190" fill="none">
+    <line x1="70" y1="120" x2="70" y2="188" stroke="#0D0C4A" stroke-opacity=".07" stroke-width="1"/>
+    <line x1="92" y1="120" x2="92" y2="188" stroke="#0D0C4A" stroke-opacity=".07" stroke-width="1"/>
+    <line x1="114" y1="120" x2="114" y2="188" stroke="#0D0C4A" stroke-opacity=".07" stroke-width="1"/>
+    <!-- 3D wireframe right facet -->
+    <polygon points="88,0 176,120 156,120 88,0" fill="#FFFFFF" stroke="#1F1E33" stroke-width="1"/>
+    <polygon points="12,114 88,0 156,120 26,120" fill="#FFFFFF" stroke="#1F1E33" stroke-width="1"/>
+    <line x1="106" y1="26" x2="128" y2="26" stroke="#1F1E33" stroke-width="0.9"/>
+    <line x1="120" y1="48" x2="146" y2="48" stroke="#1F1E33" stroke-width="0.9"/>
+    <line x1="136" y1="72" x2="162" y2="72" stroke="#1F1E33" stroke-width="0.9"/>
+    <line x1="150" y1="96" x2="170" y2="96" stroke="#1F1E33" stroke-width="0.9"/>
+    <!-- Front purple face -->
+    <polygon points="88,0 12,114 156,114" fill="#5B4BE0" stroke="#1F1E33" stroke-width="1"/>
+    <!-- Floating micro shapes -->
+    <circle cx="24" cy="54" r="9" stroke="#FF6868" stroke-width="1.4"/>
+    <polygon points="140,44 156,36 154,54" stroke="#2DE07A" stroke-width="1.3" fill="none"/>
+    <circle cx="44" cy="134" r="3" fill="#5B4BE0"/>
+  </svg>
+
+  <!-- Top-right purple ring + striped yellow square with dark L-shadow -->
+  <svg class="sh" style="right:24px;top:30px" width="185" height="175" viewBox="0 0 185 175" fill="none">
+    <circle cx="52" cy="46" r="40" stroke="#5B4BE0" stroke-width="3.2"/>
+    <polygon points="130,52 146,42 144,60" stroke="#FF6868" stroke-width="1.3" fill="none"/>
+    <!-- Dark offset L-shadow -->
+    <path d="M50 86 H62 V154 H130 V166 H50 Z" fill="#1F1E33"/>
+    <!-- Yellow square with white wavy stripes -->
+    <rect x="60" y="72" width="104" height="90" fill="#FFB41C"/>
+    <path d="M68 72 Q84 115 92 162" stroke="#FCF6F5" stroke-width="1.8" fill="none"/>
+    <path d="M92 72 Q108 115 116 162" stroke="#FCF6F5" stroke-width="1.8" fill="none"/>
+    <path d="M116 72 Q132 115 140 162" stroke="#FCF6F5" stroke-width="1.8" fill="none"/>
+    <path d="M140 72 Q154 110 162 146" stroke="#FCF6F5" stroke-width="1.8" fill="none"/>
+  </svg>
+
+  <!-- Bottom-left 3D wireframe rimmed coral circle + green dot + micro accents -->
+  <svg class="sh" style="left:-18px;bottom:-22px" width="220" height="165" viewBox="0 0 220 165" fill="none">
+    <circle cx="64" cy="34" r="6" stroke="#FF6868" stroke-width="1.3"/>
+    <circle cx="146" cy="48" r="5" fill="#5B4BE0"/>
+    <circle cx="48" cy="14" r="2.5" fill="#FFB41C"/>
+    <circle cx="28" cy="100" r="28" fill="#2DE07A"/>
+    <!-- 3D wireframe rim behind coral circle -->
+    <circle cx="144" cy="128" r="60" fill="#FFFFFF" stroke="#1F1E33" stroke-width="1.1"/>
+    <line x1="176" y1="78" x2="190" y2="90" stroke="#1F1E33" stroke-width="1"/>
+    <line x1="188" y1="98" x2="202" y2="108" stroke="#1F1E33" stroke-width="1"/>
+    <line x1="194" y1="120" x2="204" y2="126" stroke="#1F1E33" stroke-width="1"/>
+    <circle cx="132" cy="128" r="60" fill="#FF6868" stroke="#1F1E33" stroke-width="1.1"/>
+  </svg>
+
+  <!-- Bottom-right sky-blue 3D hatched pyramid -->
+  <svg class="sh" style="right:26px;bottom:48px" width="165" height="125" viewBox="0 0 165 125" fill="none">
+    <circle cx="20" cy="96" r="8.5" stroke="#FFB41C" stroke-width="1.5"/>
+    <circle cx="118" cy="108" r="18" fill="#0D0C4A" fill-opacity=".04"/>
+    <polygon points="86,10 156,74 108,104" fill="#FFFFFF" stroke="#1F1E33" stroke-width="1"/>
+    <line x1="98" y1="22" x2="104" y2="86" stroke="#1F1E33" stroke-width="0.9"/>
+    <line x1="112" y1="34" x2="120" y2="96" stroke="#1F1E33" stroke-width="0.9"/>
+    <line x1="128" y1="48" x2="136" y2="86" stroke="#1F1E33" stroke-width="0.9"/>
+    <polygon points="86,10 22,104 108,104" fill="#B8DCF7" stroke="#1F1E33" stroke-width="1"/>
+  </svg>
+
+  <!-- Right-side Hero Flat-Vector + Wireframe Illustration (adapted from ui-design.png) -->
+  <svg class="sh" style="right:36px;top:148px" width="590" height="440" viewBox="0 0 590 440" fill="none">
+    <!-- Circular wireframe halo behind top collaborator -->
+    <circle cx="386" cy="116" r="110" stroke="#1F1E33" stroke-width="0.9"/>
+    <circle cx="372" cy="116" r="110" stroke="#1F1E33" stroke-width="0.9" fill="#FCF6F5"/>
+    <line x1="448" y1="32" x2="464" y2="32" stroke="#1F1E33" stroke-width="0.8"/>
+    <line x1="466" y1="58" x2="484" y2="58" stroke="#1F1E33" stroke-width="0.8"/>
+    <line x1="478" y1="88" x2="494" y2="88" stroke="#1F1E33" stroke-width="0.8"/>
+
+    <!-- Wireframe pyramid behind right collaborator -->
+    <polygon points="520,162 586,348 564,348 520,162" fill="#FFFFFF" stroke="#1F1E33" stroke-width="0.9"/>
+    <polygon points="432,348 520,162 564,348" fill="#FFFFFF" stroke="#1F1E33" stroke-width="0.9"/>
+    <line x1="534" y1="202" x2="554" y2="202" stroke="#1F1E33" stroke-width="0.8"/>
+    <line x1="544" y1="238" x2="566" y2="238" stroke="#1F1E33" stroke-width="0.8"/>
+    <line x1="556" y1="278" x2="578" y2="278" stroke="#1F1E33" stroke-width="0.8"/>
+
+    <!-- Left wireframe card frame -->
+    <rect x="30" y="294" width="150" height="92" rx="10" fill="#FFFFFF" stroke="#1F1E33" stroke-width="0.9"/>
+    <line x1="48" y1="386" x2="90" y2="342" stroke="#1F1E33" stroke-width="0.8"/>
+    <rect x="44" y="230" width="214" height="136" rx="10" fill="#FFFFFF" stroke="#1F1E33" stroke-width="0.9"/>
+
+    <!-- Main UI Window -->
+    <rect x="208" y="138" width="290" height="196" rx="4" fill="#FFFFFF" stroke="#1F1E33" stroke-width="1"/>
+    <rect x="208" y="138" width="290" height="26" fill="#5B4BE0"/>
+    <!-- Sliders -->
+    <rect x="242" y="190" width="128" height="16" rx="8" fill="#FFFFFF" stroke="#1F1E33" stroke-width="0.9"/>
+    <circle cx="332" cy="198" r="10.5" fill="#1F1E33"/>
+    <circle cx="328" cy="198" r="10.5" fill="#2DE07A" stroke="#1F1E33" stroke-width="0.9"/>
+
+    <rect x="274" y="236" width="154" height="16" rx="8" fill="#FFFFFF" stroke="#1F1E33" stroke-width="0.9"/>
+    <circle cx="308" cy="244" r="10.5" fill="#1F1E33"/>
+    <circle cx="304" cy="244" r="10.5" fill="#2DE07A" stroke="#1F1E33" stroke-width="0.9"/>
+
+    <!-- Bottom UI square swatches -->
+    <rect x="228" y="280" width="18" height="18" stroke="#1F1E33" stroke-width="0.9" fill="none"/>
+    <rect x="236" y="288" width="14" height="14" fill="#FF6868"/>
+    <rect x="266" y="280" width="18" height="18" stroke="#1F1E33" stroke-width="0.9" fill="none"/>
+    <rect x="274" y="288" width="14" height="14" fill="#2DE07A"/>
+    <rect x="304" y="280" width="18" height="18" stroke="#1F1E33" stroke-width="0.9" fill="none"/>
+    <rect x="312" y="288" width="14" height="14" fill="#5B4BE0"/>
+    <rect x="338" y="280" width="18" height="18" stroke="#1F1E33" stroke-width="0.9" fill="none"/>
+    <rect x="346" y="288" width="14" height="14" stroke="#1F1E33" stroke-width="0.9" fill="none"/>
+
+    <!-- Lightbulb widget with dark L-shadow -->
+    <path d="M432 238 H472 V198 H460 V226 H432 Z" fill="#1F1E33"/>
+    <line x1="420" y1="184" x2="458" y2="176" stroke="#1F1E33" stroke-width="0.7" stroke-opacity=".45"/>
+    <line x1="418" y1="196" x2="458" y2="188" stroke="#1F1E33" stroke-width="0.7" stroke-opacity=".45"/>
+    <line x1="418" y1="208" x2="458" y2="200" stroke="#1F1E33" stroke-width="0.7" stroke-opacity=".45"/>
+    <circle cx="441" cy="194" r="11" fill="#FFB41C"/>
+    <path d="M436 202 L446 202 L444 210 L438 210 Z" fill="#FFB41C"/>
+    <rect x="437" y="210" width="8" height="5" rx="1.5" fill="#5B4BE0"/>
+  </svg>
+
+  <div style="position:absolute;left:80px;top:210px;width:620px;z-index:2">
+    <h1>Penjadwalan Proyek pada<span>Aplikasi Kantin FT</span></h1>
+    <div class="pill" style="font-size:15px;padding:13px 28px;line-height:1.5;text-align:left">
+      <b>Kelompok:</b><br>- Nathanael Satya Saputra (24/534424/TK/59236)<br>- Natanael Sebastian Simanjuntak (24/542676/TK/60273)
+    </div>
+  </div>
 </section>
 
 <!-- 2 KEBUTUHAN -->
 <section class="slide">
-<div class="sh tri" style="--s:40px;--c:var(--purple);right:70px;top:-10px"></div>
-<h2>Kebutuhan dan batas proyek</h2>
-<p class="sub"><b>Rencana rancangan:</b> Aplikasi mobile pemesanan makanan untuk kantin di lingkungan Fakultas Teknik</p>
-<div class="grid g3">
-<div class="card bar"><b>Pesan makanan</b><p>Mahasiswa, dosen, dan tendik memesan dari tenant kantin FT.</p></div>
-<div class="card bar" style="border-top-color:var(--coral)"><b>Bayar otomatis</b><p>QRIS atau transfer bank dan diverifikasi secara otomatis.</p></div>
-<div class="card bar" style="border-top-color:var(--yellow)"><b>Laporan omzet</b><p>Tenant melihat omzet harian di aplikasi.</p></div>
-</div>
-<div class="grid g2" style="margin-top:18px">
-<div class="card"><b>Asumsi: Pembatalan pesanan</b>
-<p>Pembeli boleh membatalkan pesanan sebelum tenant mulai menyiapkan. Jika pembeli sudah membayar, dana akan dikembalikan secara penuh. <b style="color:#DC2626">Hal ini menjadi fitur tambahan pada aplikasi.</b></p></div>
-<div class="card"><b>Asumsi: Perolehan Omzet</b>
-<p>Omzet yang didapat hanya merupakan pesanan yang sudah dibayar dan diserahkan pada customer.</p></div>
-</div>
-<div class="foot"><span><b>Penjadwalan Proyek Kantin FT</b></span><span><b>02</b> / 12</span></div>
+  <div class="wf-box" style="left:60px;top:36px;width:240px;height:40px"></div>
+  <svg class="sh" style="right:36px;top:-6px" width="120" height="105" viewBox="0 0 120 105" fill="none">
+    <polygon points="58,0 106,74 92,74 58,0" fill="#FFFFFF" stroke="#1F1E33" stroke-width="1"/>
+    <polygon points="10,74 58,0 92,74" fill="#5B4BE0" stroke="#1F1E33" stroke-width="1"/>
+    <circle cx="104" cy="88" r="7" stroke="#FF6868" stroke-width="1.3"/>
+  </svg>
+  <h2>Kebutuhan dan batas proyek</h2>
+  <p class="sub"><b>Rencana rancangan:</b> Aplikasi mobile pemesanan makanan untuk kantin di lingkungan Fakultas Teknik</p>
+  <div class="grid g3">
+    <div class="card bar"><b>Pesan makanan</b><p>Mahasiswa, dosen, dan tendik memesan dari tenant kantin FT.</p></div>
+    <div class="card bar" style="border-top-color:var(--coral)"><b>Bayar otomatis</b><p>QRIS atau transfer bank dan diverifikasi secara otomatis.</p></div>
+    <div class="card bar" style="border-top-color:var(--yellow)"><b>Laporan omzet</b><p>Tenant melihat omzet harian di aplikasi.</p></div>
+  </div>
+  <div class="grid g2" style="margin-top:18px">
+    <div class="card"><b>Asumsi: Pembatalan pesanan</b>
+    <p>Pembeli boleh membatalkan pesanan sebelum tenant mulai menyiapkan. Jika pembeli sudah membayar, dana akan dikembalikan secara penuh. <b style="color:#DC2626">Hal ini menjadi fitur tambahan pada aplikasi.</b></p></div>
+    <div class="card"><b>Asumsi: Perolehan Omzet</b>
+    <p>Omzet yang didapat hanya merupakan pesanan yang sudah dibayar dan diserahkan pada customer.</p></div>
+  </div>
+  <div class="foot"><span><b>Penjadwalan Proyek Kantin FT</b></span><span><b>02</b> / 12</span></div>
 </section>
 
 <!-- 3 FITUR -->
 <section class="slide">
-<div class="sh dot" style="--s:46px;--c:var(--green);right:60px;top:40px"></div>
-<h2>Kelompok fitur dan aktivitas di jadwal</h2>
-<p class="sub">Setiap kelompok fitur dijabarkan menjadi aktivitas T01–T32</p>
-<table>
-<tr><th>Pengguna</th><th>Fitur yang direncanakan</th><th>Aktivitas</th></tr>
-<tr><td>Semua</td><td>Akun, hak akses, pengelolaan akun</td><td>T07, T10, T11</td></tr>
-<tr><td>Pembeli</td><td>Katalog kantin, tenant, dan menu</td><td>T10, T11</td></tr>
-<tr><td>Pembeli</td><td>Keranjang, pesanan, stok, riwayat</td><td>T12, T14, T19</td></tr>
-<tr><td>Pembeli</td><td>Pembayaran QRIS dan transfer</td><td>T16, T18, T19</td></tr>
-<tr><td>Tenant</td><td>Antrean, status pesanan, penyerahan</td><td>T15, T18, T24</td></tr>
-<tr><td>Pengelola</td><td>Pembatalan, pengembalian dana, riwayat</td><td>T20, T22, T24</td></tr>
-<tr><td>Tenant</td><td>Laporan omzet harian dan rincian</td><td>T22, T23</td></tr>
-</table>
-<div class="foot"><span><b>Penjadwalan Proyek Kantin FT</b></span><span><b>03</b> / 12</span></div>
+  <svg class="sh" style="right:42px;top:24px" width="90" height="84" viewBox="0 0 90 84" fill="none">
+    <circle cx="54" cy="40" r="24" fill="#FFFFFF" stroke="#1F1E33" stroke-width="1"/>
+    <circle cx="46" cy="40" r="24" fill="#2DE07A" stroke="#1F1E33" stroke-width="1"/>
+    <circle cx="14" cy="20" r="5" stroke="#5B4BE0" stroke-width="1.4"/>
+  </svg>
+  <h2>Kelompok fitur dan aktivitas di jadwal</h2>
+  <p class="sub">Setiap kelompok fitur dijabarkan menjadi aktivitas T01–T32</p>
+  <table>
+    <tr><th>Pengguna</th><th>Fitur yang direncanakan</th><th>Aktivitas</th></tr>
+    <tr><td>Semua</td><td>Akun, hak akses, pengelolaan akun</td><td>T07, T10, T11</td></tr>
+    <tr><td>Pembeli</td><td>Katalog kantin, tenant, dan menu</td><td>T10, T11</td></tr>
+    <tr><td>Pembeli</td><td>Keranjang, pesanan, stok, riwayat</td><td>T12, T14, T19</td></tr>
+    <tr><td>Pembeli</td><td>Pembayaran QRIS dan transfer</td><td>T16, T18, T19</td></tr>
+    <tr><td>Tenant</td><td>Antrean, status pesanan, penyerahan</td><td>T15, T18, T24</td></tr>
+    <tr><td>Pengelola</td><td>Pembatalan, pengembalian dana, riwayat</td><td>T20, T22, T24</td></tr>
+    <tr><td>Tenant</td><td>Laporan omzet harian dan rincian</td><td>T22, T23</td></tr>
+  </table>
+  <div class="foot"><span><b>Penjadwalan Proyek Kantin FT</b></span><span><b>03</b> / 12</span></div>
 </section>
 
 <!-- 4 DASAR -->
 <section class="slide">
-<div class="sh tri" style="--s:36px;--c:var(--sky);right:90px;bottom:50px"></div>
-<h2>Dasar penyusunan jadwal</h2>
-<p class="sub">Penyusunan jadwal atau scheduling dilakukan dengan pengembangan bertahap dengan tinjauan tiap minggu. Adapun dasar dari penyusunan jadwal yakni sebagai berikut.</p>
-<div class="row" style="margin-top:30px">
-<div class="step"><b>Kebutuhan</b><span>Apa yang akan dibuat?</span></div>
-<div class="step" style="background:var(--coral)"><b>WBS</b><span>Pekerjaan apa yang diperlukan?</span></div>
-<div class="step" style="background:var(--navy)"><b>Effort</b><span>Berapa beban kerja dan siapa yang tersedia?</span></div>
-<div class="step" style="background:var(--purple)"><b>Ketergantungan</b><span>Mana yang harus didahulukan ?</span></div>
-<div class="step" style="background:var(--coral)"><b>Gantt Diagram</b><span>Kapan dikerjakan dan apa targetnya?</span></div>
-</div>
-<div class="card" style="margin-top:34px"><p>Jadwal disusun berdasarkan rincian pekerjaan yang dibutuhkan oleh setiap fitur. Pengujian dilakukan secara bertahap selama masa pengerjaan program, lalu ditutup dengan pengujian penerimaan terpadu pada minggu ke-7 (M7).</p></div>
-<div class="foot"><span><b>Penjadwalan Proyek Kantin FT</b></span><span><b>04</b> / 12</span></div>
+  <svg class="sh" style="right:52px;bottom:48px" width="120" height="90" viewBox="0 0 120 90" fill="none">
+    <polygon points="62,8 110,64 78,80" fill="#FFFFFF" stroke="#1F1E33" stroke-width="1"/>
+    <line x1="74" y1="22" x2="82" y2="74" stroke="#1F1E33" stroke-width="0.8"/>
+    <polygon points="62,8 18,80 78,80" fill="#B8DCF7" stroke="#1F1E33" stroke-width="1"/>
+    <circle cx="14" cy="24" r="6" stroke="#FFB41C" stroke-width="1.4"/>
+  </svg>
+  <h2>Dasar penyusunan jadwal</h2>
+  <p class="sub">Penyusunan jadwal atau scheduling dilakukan dengan pengembangan bertahap dengan tinjauan tiap minggu. Adapun dasar dari penyusunan jadwal yakni sebagai berikut.</p>
+  <div class="row" style="margin-top:28px">
+    <div class="step"><b>Kebutuhan</b><span>Apa yang akan dibuat?</span></div>
+    <div class="step" style="background:var(--coral)"><b>WBS</b><span>Pekerjaan apa yang diperlukan?</span></div>
+    <div class="step" style="background:var(--navy)"><b>Effort</b><span>Berapa beban kerja dan siapa yang tersedia?</span></div>
+    <div class="step" style="background:var(--purple)"><b>Ketergantungan</b><span>Mana yang harus didahulukan ?</span></div>
+    <div class="step" style="background:var(--coral)"><b>Gantt Diagram</b><span>Kapan dikerjakan dan apa targetnya?</span></div>
+  </div>
+  <div class="card" style="margin-top:32px"><p>Jadwal disusun berdasarkan rincian pekerjaan yang dibutuhkan oleh setiap fitur. Pengujian dilakukan secara bertahap selama masa pengerjaan program, lalu ditutup dengan pengujian penerimaan terpadu pada minggu ke-7 (M7).</p></div>
+  <div class="foot"><span><b>Penjadwalan Proyek Kantin FT</b></span><span><b>04</b> / 12</span></div>
 </section>
 
 <!-- 5 TIM -->
 <section class="slide">
-<div class="sh ring" style="--s:60px;--c:var(--purple);right:70px;top:36px"></div>
-<h2>Tim, kapasitas, dan estimasi effort</h2>
-<p class="sub">Asumsi skenario: 4 anggota, 8 minggu, 10 jam per anggota per minggu</p>
-<div class="grid g3" style="margin-bottom:20px">
-<div class="card"><div class="big" style="color:var(--purple)">320</div><div class="lbl"><b>Kapasitas tim (jam-orang)</b><br>Total waktu tersedia dari 4 anggota × 10 jam/minggu × 8 minggu.</div></div>
-<div class="card"><div class="big" style="color:var(--coral)">256</div><div class="lbl"><b>Beban kerja terencana (jam-orang)</b><br>Total estimasi waktu untuk mengerjakan seluruh 7 paket WBS.</div></div>
-<div class="card"><div class="big" style="color:var(--yellow)">64</div><div class="lbl"><b>Cadangan waktu / buffer (20%)</b><br>Sisa kapasitas untuk mengantisipasi kendala, perbaikan, dan revisi.</div></div>
-</div>
-<table>
-<tr><th style="width:90px">Anggota</th><th>Fokus tanggung jawab</th></tr>
-<tr><td>A</td><td>Analisis, koordinasi, pengujian, dokumentasi</td></tr>
-<tr><td>B</td><td>Rancangan layar dan aplikasi mobile</td></tr>
-<tr><td>C</td><td>Backend, autentikasi, aturan pesanan, laporan</td></tr>
-<tr><td>D</td><td>Basis data, pembayaran, pengembalian, <i>testing</i></td></tr>
-</table>
-<div class="foot"><span><b>Penjadwalan Proyek Kantin FT</b></span><span><b>05</b> / 12</span></div>
+  <svg class="sh" style="right:40px;top:24px" width="105" height="95" viewBox="0 0 105 95" fill="none">
+    <circle cx="48" cy="46" r="30" stroke="#5B4BE0" stroke-width="3"/>
+    <path d="M68 48 H74 V82 H102 V88 H68 Z" fill="#1F1E33"/>
+    <rect x="74" y="42" width="28" height="28" fill="#FFB41C"/>
+  </svg>
+  <h2>Tim, kapasitas, dan estimasi effort</h2>
+  <p class="sub">Asumsi skenario: 4 anggota, 8 minggu, 10 jam per anggota per minggu</p>
+  <div class="grid g3" style="margin-bottom:20px">
+    <div class="card bar"><div class="big" style="color:var(--purple)">320</div><div class="lbl"><b>Kapasitas tim (jam-orang)</b><br>Total waktu tersedia dari 4 anggota × 10 jam/minggu × 8 minggu.</div></div>
+    <div class="card bar" style="border-top-color:var(--coral)"><div class="big" style="color:var(--coral)">256</div><div class="lbl"><b>Beban kerja terencana (jam-orang)</b><br>Total estimasi waktu untuk mengerjakan seluruh 7 paket WBS.</div></div>
+    <div class="card bar" style="border-top-color:var(--yellow)"><div class="big" style="color:var(--yellow)">64</div><div class="lbl"><b>Cadangan waktu / buffer (20%)</b><br>Sisa kapasitas untuk mengantisipasi kendala, perbaikan, dan revisi.</div></div>
+  </div>
+  <table>
+    <tr><th style="width:90px">Anggota</th><th>Fokus tanggung jawab</th></tr>
+    <tr><td>A</td><td>Analisis, koordinasi, pengujian, dokumentasi</td></tr>
+    <tr><td>B</td><td>Rancangan layar dan aplikasi mobile</td></tr>
+    <tr><td>C</td><td>Backend, autentikasi, aturan pesanan, laporan</td></tr>
+    <tr><td>D</td><td>Basis data, pembayaran, pengembalian, <i>testing</i></td></tr>
+  </table>
+  <div class="foot"><span><b>Penjadwalan Proyek Kantin FT</b></span><span><b>05</b> / 12</span></div>
 </section>
 
 <!-- 6 WBS -->
 <section class="slide">
-<div class="sh tri" style="--s:36px;--c:var(--coral);right:80px;top:-6px"></div>
-<h2>WBS dan alokasi effort</h2>
-<p class="sub">Seluruh pekerjaan proyek dibagi ke dalam tujuh paket WBS dengan total estimasi 256 jam-orang.</p>
-<table>
-<tr><th>Paket pekerjaan</th><th class="n" style="width:110px">Jam-orang</th><th style="width:300px">Proporsi</th></tr>
-<tr><td>1. Kebutuhan, aturan bisnis, kelayakan pembayaran</td><td class="n">38</td><td><div class="g" style="width:67%"></div></td></tr>
-<tr><td>2. Rancangan dan fondasi mobile serta backend</td><td class="n">24</td><td><div class="g" style="width:43%"></div></td></tr>
-<tr><td>3. Akun, katalog, stok, dan pemesanan</td><td class="n">56</td><td><div class="g" style="width:100%"></div></td></tr>
-<tr><td>4. Pembayaran, pembatalan, pengembalian</td><td class="n">56</td><td><div class="g" style="width:100%;background:var(--coral)"></div></td></tr>
-<tr><td>5. Laporan, penyerahan, riwayat transaksi</td><td class="n">26</td><td><div class="g" style="width:46%"></div></td></tr>
-<tr><td>6. Integrasi, pengujian penerimaan, perbaikan</td><td class="n">34</td><td><div class="g" style="width:61%"></div></td></tr>
-<tr><td>7. Paket uji dan dokumen akhir</td><td class="n">22</td><td><div class="g" style="width:39%"></div></td></tr>
-<tr><td><b>Total</b></td><td class="n"><b>256</b></td><td></td></tr>
-</table>
-<div class="foot"><span><b>Penjadwalan Proyek Kantin FT</b></span><span><b>06</b> / 12</span></div>
+  <svg class="sh" style="right:42px;top:-6px" width="110" height="95" viewBox="0 0 110 95" fill="none">
+    <polygon points="56,0 98,66 86,66 56,0" fill="#FFFFFF" stroke="#1F1E33" stroke-width="1"/>
+    <polygon points="14,66 56,0 86,66" fill="#FF6868" stroke="#1F1E33" stroke-width="1"/>
+    <circle cx="96" cy="80" r="6" stroke="#5B4BE0" stroke-width="1.4"/>
+  </svg>
+  <h2>WBS dan alokasi effort</h2>
+  <p class="sub">Seluruh pekerjaan proyek dibagi ke dalam tujuh paket WBS dengan total estimasi 256 jam-orang.</p>
+  <table>
+    <tr><th>Paket pekerjaan</th><th class="n" style="width:110px">Jam-orang</th><th style="width:300px">Proporsi</th></tr>
+    <tr><td>1. Kebutuhan, aturan bisnis, kelayakan pembayaran</td><td class="n">38</td><td><div class="g-track"><div class="g" style="width:67%"></div></div></td></tr>
+    <tr><td>2. Rancangan dan fondasi mobile serta backend</td><td class="n">24</td><td><div class="g-track"><div class="g" style="width:43%"></div></div></td></tr>
+    <tr><td>3. Akun, katalog, stok, dan pemesanan</td><td class="n">56</td><td><div class="g-track"><div class="g" style="width:100%"></div></div></td></tr>
+    <tr><td>4. Pembayaran, pembatalan, pengembalian</td><td class="n">56</td><td><div class="g-track"><div class="g coral" style="width:100%;background:var(--coral)"></div></div></td></tr>
+    <tr><td>5. Laporan, penyerahan, riwayat transaksi</td><td class="n">26</td><td><div class="g-track"><div class="g" style="width:46%"></div></div></td></tr>
+    <tr><td>6. Integrasi, pengujian penerimaan, perbaikan</td><td class="n">34</td><td><div class="g-track"><div class="g" style="width:61%"></div></div></td></tr>
+    <tr><td>7. Paket uji dan dokumen akhir</td><td class="n">22</td><td><div class="g-track"><div class="g" style="width:39%"></div></div></td></tr>
+    <tr><td><b>Total</b></td><td class="n"><b>256</b></td><td></td></tr>
+  </table>
+  <div class="foot"><span><b>Penjadwalan Proyek Kantin FT</b></span><span><b>06</b> / 12</span></div>
 </section>
 
 <!-- 7 KETERGANTUNGAN -->
 <section class="slide">
-<div class="sh dot" style="--s:40px;--c:var(--yellow);right:70px;top:40px"></div>
-<h2>Ketergantungan aktivitas</h2>
-<p class="sub" style="margin-bottom:16px">Rantai utama yang dipantau: alur aktivitas krusial dari pengecekan penyedia pembayaran dan pemesanan hingga pengujian akhir. Keterlambatan di salah satu titik akan menggeser aktivitas berikutnya, sementara T19 dan T20 dikerjakan paralel pada M5.</p>
-<div class="chain">
-<div class="nd"><b>T03 · T12</b>Cek penyedia dan pesanan<br>M1 · M3</div><span class="ar">→</span>
-<div class="nd"><b>T16</b>Integrasi pembayaran<br>M4</div><span class="ar">→</span>
-<div class="par"><div class="nd p2"><b>T19</b>Konfirmasi dan batal · M5</div><div class="nd p2"><b>T20</b>Pengembalian dana · M5</div></div><span class="ar">→</span>
-<div class="nd"><b>T21</b>Uji pembayaran<br>M6</div><span class="ar">→</span>
-<div class="nd"><b>T25</b>Uji penerimaan<br>M7</div><span class="ar">→</span>
-<div class="nd"><b>T31 → T32</b>Regresi lalu paket uji<br>M8</div>
-</div>
-<table>
-<tr><th>ID</th><th>Aktivitas</th><th>PIC</th><th class="n">Jam</th><th>Waktu</th><th>Pendahulu</th></tr>
-<tr><td>T16</td><td>Integrasi pembayaran</td><td>D</td><td class="n">10</td><td>M4</td><td>T03, T07, T12</td></tr>
-<tr><td>T19</td><td>Status pembayaran dan batas pembatalan</td><td>C</td><td class="n">10</td><td>M5</td><td>T15, T16</td></tr>
-<tr><td>T20</td><td>Pengembalian dana</td><td>D</td><td class="n">10</td><td>M5</td><td>T03, T15, T16</td></tr>
-<tr><td>T21</td><td>Uji pembayaran dan pembatalan</td><td>A</td><td class="n">8</td><td>M6</td><td>T17, T18, T19, T20</td></tr>
-</table>
-<div class="foot"><span><b>Penjadwalan Proyek Kantin FT</b></span><span><b>07</b> / 12</span></div>
+  <svg class="sh" style="right:42px;top:24px" width="90" height="84" viewBox="0 0 90 84" fill="none">
+    <path d="M28 24 H34 V66 H72 V72 H28 Z" fill="#1F1E33"/>
+    <rect x="34" y="18" width="44" height="44" fill="#FFB41C"/>
+    <path d="M40 18 Q48 40 52 62" stroke="#FCF6F5" stroke-width="1.4" fill="none"/>
+    <path d="M56 18 Q64 40 68 62" stroke="#FCF6F5" stroke-width="1.4" fill="none"/>
+  </svg>
+  <h2>Ketergantungan aktivitas</h2>
+  <p class="sub" style="margin-bottom:16px">Rantai utama yang dipantau: alur aktivitas krusial dari pengecekan penyedia pembayaran dan pemesanan hingga pengujian akhir. Keterlambatan di salah satu titik akan menggeser aktivitas berikutnya, sementara T19 dan T20 dikerjakan paralel pada M5.</p>
+  <div class="chain">
+    <div class="nd"><b>T03 · T12</b>Cek penyedia dan pesanan<br>M1 · M3</div><span class="ar">→</span>
+    <div class="nd"><b>T16</b>Integrasi pembayaran<br>M4</div><span class="ar">→</span>
+    <div class="par"><div class="nd p2"><b>T19</b>Konfirmasi dan batal · M5</div><div class="nd p2"><b>T20</b>Pengembalian dana · M5</div></div><span class="ar">→</span>
+    <div class="nd"><b>T21</b>Uji pembayaran<br>M6</div><span class="ar">→</span>
+    <div class="nd"><b>T25</b>Uji penerimaan<br>M7</div><span class="ar">→</span>
+    <div class="nd"><b>T31 → T32</b>Regresi lalu paket uji<br>M8</div>
+  </div>
+  <table>
+    <tr><th>ID</th><th>Aktivitas</th><th>PIC</th><th class="n">Jam</th><th>Waktu</th><th>Pendahulu</th></tr>
+    <tr><td>T16</td><td>Integrasi pembayaran</td><td>D</td><td class="n">10</td><td>M4</td><td>T03, T07, T12</td></tr>
+    <tr><td>T19</td><td>Status pembayaran dan batas pembatalan</td><td>C</td><td class="n">10</td><td>M5</td><td>T15, T16</td></tr>
+    <tr><td>T20</td><td>Pengembalian dana</td><td>D</td><td class="n">10</td><td>M5</td><td>T03, T15, T16</td></tr>
+    <tr><td>T21</td><td>Uji pembayaran dan pembatalan</td><td>A</td><td class="n">8</td><td>M6</td><td>T17, T18, T19, T20</td></tr>
+  </table>
+  <div class="foot"><span><b>Penjadwalan Proyek Kantin FT</b></span><span><b>07</b> / 12</span></div>
 </section>
 
 <!-- 8 GANTT -->
 <section class="slide">
-<div class="sh tri" style="--s:34px;--c:var(--green);right:70px;top:-6px"></div>
-<h2>Gantt chart skenario delapan minggu</h2>
-<table class="gt" style="margin-top:14px">
-<tr><th style="width:330px">Paket WBS</th><th class="c">M1</th><th class="c">M2</th><th class="c">M3</th><th class="c">M4</th><th class="c">M5</th><th class="c">M6</th><th class="c">M7</th><th class="c">M8</th></tr>
-<tr><td>1. Kebutuhan dan kelayakan</td><td class="p"></td><td class="p"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><td>2. Desain dan fondasi</td><td></td><td class="p"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><td>3. Akun, katalog, pemesanan</td><td></td><td></td><td class="p"></td><td class="p"></td><td></td><td></td><td></td><td></td></tr>
-<tr><td>4. Pembayaran dan pengembalian</td><td></td><td></td><td></td><td class="p" style="background:var(--coral)"></td><td class="p" style="background:var(--coral)"></td><td class="p" style="background:var(--coral)"></td><td></td><td></td></tr>
-<tr><td>5. Laporan dan penyerahan</td><td></td><td></td><td></td><td></td><td></td><td class="p"></td><td></td><td></td></tr>
-<tr><td>6. Integrasi dan penerimaan</td><td></td><td></td><td></td><td></td><td></td><td></td><td class="p"></td><td></td></tr>
-<tr><td>7. Paket uji dan dokumen</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="p"></td></tr>
-<tr><td><b>Milestone</b></td><td class="m">◆</td><td class="m">◆</td><td></td><td class="m">◆</td><td class="m">◆</td><td class="m">◆</td><td class="m">◆</td><td class="m">◆</td></tr>
-</table>
-<div style="display:flex;gap:28px;align-items:center;flex-wrap:wrap;margin-top:16px;position:relative;z-index:2;font-size:15px">
-  <div style="display:flex;align-items:center;gap:10px"><span style="display:inline-block;width:28px;height:18px;background:var(--purple);border-radius:4px"></span><span><b>Minggu pelaksanaan</b> (pengujian modul termasuk di tiap paket)</span></div>
-  <div style="display:flex;align-items:center;gap:10px"><span style="display:inline-block;width:28px;height:18px;background:var(--coral);border-radius:4px"></span><span><b>Fokus utama / risiko tinggi</b> (pembayaran &amp; pengembalian)</span></div>
-  <div style="display:flex;align-items:center;gap:8px"><span style="color:var(--coral);font-size:22px;line-height:1">◆</span><span><b>Milestone</b> (target akhir minggu)</span></div>
-</div>
-<div class="foot"><span><b>Penjadwalan Proyek Kantin FT</b></span><span><b>08</b> / 12</span></div>
+  <svg class="sh" style="right:42px;top:-6px" width="105" height="90" viewBox="0 0 105 90" fill="none">
+    <polygon points="52,0 92,62 80,62 52,0" fill="#FFFFFF" stroke="#1F1E33" stroke-width="1"/>
+    <polygon points="12,62 52,0 80,62" fill="#2DE07A" stroke="#1F1E33" stroke-width="1"/>
+  </svg>
+  <h2>Gantt chart skenario delapan minggu</h2>
+  <table class="gt" style="margin-top:14px">
+    <tr><th style="width:330px">Paket WBS</th><th class="c">M1</th><th class="c">M2</th><th class="c">M3</th><th class="c">M4</th><th class="c">M5</th><th class="c">M6</th><th class="c">M7</th><th class="c">M8</th></tr>
+    <tr><td>1. Kebutuhan dan kelayakan</td><td class="p"></td><td class="p"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>2. Desain dan fondasi</td><td></td><td class="p"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>3. Akun, katalog, pemesanan</td><td></td><td></td><td class="p"></td><td class="p"></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>4. Pembayaran dan pengembalian</td><td></td><td></td><td></td><td class="p" style="background:var(--coral)"></td><td class="p" style="background:var(--coral)"></td><td class="p" style="background:var(--coral)"></td><td></td><td></td></tr>
+    <tr><td>5. Laporan dan penyerahan</td><td></td><td></td><td></td><td></td><td></td><td class="p"></td><td></td><td></td></tr>
+    <tr><td>6. Integrasi dan penerimaan</td><td></td><td></td><td></td><td></td><td></td><td></td><td class="p"></td><td></td></tr>
+    <tr><td>7. Paket uji dan dokumen</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="p"></td></tr>
+    <tr><td><b>Milestone</b></td><td class="m">◆</td><td class="m">◆</td><td></td><td class="m">◆</td><td class="m">◆</td><td class="m">◆</td><td class="m">◆</td><td class="m">◆</td></tr>
+  </table>
+  <div style="display:flex;gap:28px;align-items:center;flex-wrap:wrap;margin-top:16px;position:relative;z-index:2;font-size:15px">
+    <div style="display:flex;align-items:center;gap:10px"><span style="display:inline-block;width:28px;height:18px;background:var(--purple);border-radius:5px"></span><span><b>Minggu pelaksanaan</b> (pengujian modul termasuk di tiap paket)</span></div>
+    <div style="display:flex;align-items:center;gap:10px"><span style="display:inline-block;width:28px;height:18px;background:var(--coral);border-radius:5px"></span><span><b>Fokus utama / risiko tinggi</b> (pembayaran &amp; pengembalian)</span></div>
+    <div style="display:flex;align-items:center;gap:8px"><span style="color:var(--coral);font-size:22px;line-height:1">◆</span><span><b>Milestone</b> (target akhir minggu)</span></div>
+  </div>
+  <div class="foot"><span><b>Penjadwalan Proyek Kantin FT</b></span><span><b>08</b> / 12</span></div>
 </section>
 
 <!-- 9 BEBAN -->
 <section class="slide">
-<div class="sh ring" style="--s:54px;--c:var(--coral);right:70px;top:34px"></div>
-<h2>Beban kerja per anggota per minggu</h2>
-<p class="sub">Satuan jam-orang. Batas jam kerja untuk tiap anggota diasumsikan 10 jam per minggu.</p>
-<table>
-<tr><th>Minggu</th><th class="n">A</th><th class="n">B</th><th class="n">C</th><th class="n">D</th><th class="n">Total</th><th class="n">Kapasitas</th><th class="n">Cadangan</th></tr>
-<tr><td>M1</td><td class="n">8</td><td class="n">6</td><td class="n">8</td><td class="n">8</td><td class="n">30</td><td class="n">40</td><td class="n">10</td></tr>
-<tr><td>M2</td><td class="n">8</td><td class="n">8</td><td class="n">8</td><td class="n">8</td><td class="n">32</td><td class="n">40</td><td class="n">8</td></tr>
-<tr><td>M3</td><td class="n">6</td><td class="n">8</td><td class="n">10</td><td class="n">8</td><td class="n">32</td><td class="n">40</td><td class="n">8</td></tr>
-<tr><td>M4</td><td class="n">8</td><td class="n">8</td><td class="n">8</td><td class="n">10</td><td class="n">34</td><td class="n">40</td><td class="n">6</td></tr>
-<tr class="hot"><td>M5</td><td class="n">8</td><td class="n">10</td><td class="n">10</td><td class="n">10</td><td class="n">38</td><td class="n">40</td><td class="n">2</td></tr>
-<tr><td>M6</td><td class="n">8</td><td class="n">8</td><td class="n">10</td><td class="n">8</td><td class="n">34</td><td class="n">40</td><td class="n">6</td></tr>
-<tr><td>M7</td><td class="n">10</td><td class="n">8</td><td class="n">8</td><td class="n">8</td><td class="n">34</td><td class="n">40</td><td class="n">6</td></tr>
-<tr><td>M8</td><td class="n">6</td><td class="n">6</td><td class="n">4</td><td class="n">6</td><td class="n">22</td><td class="n">40</td><td class="n">18</td></tr>
-<tr><td><b>Total</b></td><td class="n"><b>62</b></td><td class="n"><b>62</b></td><td class="n"><b>66</b></td><td class="n"><b>66</b></td><td class="n"><b>256</b></td><td class="n"><b>320</b></td><td class="n"><b>64</b></td></tr>
-</table>
-<p class="note">M5 menjadi waktu paling padat dimana B, C, dan D sudah penuh dan cadangan waktu hanya tersisa 2 jam-orang.</p>
-<div class="foot"><span><b>Penjadwalan Proyek Kantin FT</b></span><span><b>09</b> / 12</span></div>
+  <svg class="sh" style="right:42px;top:24px" width="90" height="84" viewBox="0 0 90 84" fill="none">
+    <circle cx="48" cy="40" r="26" stroke="#FF6868" stroke-width="3"/>
+    <circle cx="18" cy="64" r="5" fill="#5B4BE0"/>
+  </svg>
+  <h2>Beban kerja per anggota per minggu</h2>
+  <p class="sub">Satuan jam-orang. Batas jam kerja untuk tiap anggota diasumsikan 10 jam per minggu.</p>
+  <table>
+    <tr><th>Minggu</th><th class="n">A</th><th class="n">B</th><th class="n">C</th><th class="n">D</th><th class="n">Total</th><th class="n">Kapasitas</th><th class="n">Cadangan</th></tr>
+    <tr><td>M1</td><td class="n">8</td><td class="n">6</td><td class="n">8</td><td class="n">8</td><td class="n">30</td><td class="n">40</td><td class="n">10</td></tr>
+    <tr><td>M2</td><td class="n">8</td><td class="n">8</td><td class="n">8</td><td class="n">8</td><td class="n">32</td><td class="n">40</td><td class="n">8</td></tr>
+    <tr><td>M3</td><td class="n">6</td><td class="n">8</td><td class="n">10</td><td class="n">8</td><td class="n">32</td><td class="n">40</td><td class="n">8</td></tr>
+    <tr><td>M4</td><td class="n">8</td><td class="n">8</td><td class="n">8</td><td class="n">10</td><td class="n">34</td><td class="n">40</td><td class="n">6</td></tr>
+    <tr class="hot"><td>M5</td><td class="n">8</td><td class="n">10</td><td class="n">10</td><td class="n">10</td><td class="n">38</td><td class="n">40</td><td class="n">2</td></tr>
+    <tr><td>M6</td><td class="n">8</td><td class="n">8</td><td class="n">10</td><td class="n">8</td><td class="n">34</td><td class="n">40</td><td class="n">6</td></tr>
+    <tr><td>M7</td><td class="n">10</td><td class="n">8</td><td class="n">8</td><td class="n">8</td><td class="n">34</td><td class="n">40</td><td class="n">6</td></tr>
+    <tr><td>M8</td><td class="n">6</td><td class="n">6</td><td class="n">4</td><td class="n">6</td><td class="n">22</td><td class="n">40</td><td class="n">18</td></tr>
+    <tr><td><b>Total</b></td><td class="n"><b>62</b></td><td class="n"><b>62</b></td><td class="n"><b>66</b></td><td class="n"><b>66</b></td><td class="n"><b>256</b></td><td class="n"><b>320</b></td><td class="n"><b>64</b></td></tr>
+  </table>
+  <p class="note">M5 menjadi waktu paling padat dimana B, C, dan D sudah penuh dan cadangan waktu hanya tersisa 2 jam-orang.</p>
+  <div class="foot"><span><b>Penjadwalan Proyek Kantin FT</b></span><span><b>09</b> / 12</span></div>
 </section>
 
 <!-- 10 MILESTONE -->
 <section class="slide">
-<div class="sh tri" style="--s:34px;--c:var(--purple);right:80px;top:-6px"></div>
-<h2>Milestone dan kriteria pencapaian</h2>
-<p class="sub">Setiap milestone punya hasil yang dapat diperiksa, bukan sekadar akhir minggu</p>
-<table>
-<tr><th style="width:220px;white-space:nowrap">Target</th><th>Kriteria tercapai</th></tr>
-<tr><td style="white-space:nowrap">MS-01 · akhir M1</td><td>Kebutuhan, platform, dan kelayakan pembayaran ditinjau</td></tr>
-<tr><td style="white-space:nowrap">MS-02 · akhir M2</td><td>Rancangan mobile, basis data, dan fondasi akun tersedia</td></tr>
-<tr><td style="white-space:nowrap">MS-03 · akhir M4</td><td>Alur pemesanan dasar terhubung ke layanan sebenarnya</td></tr>
-<tr><td style="white-space:nowrap">MS-04 · akhir M5</td><td>QRIS dan transfer terkonfirmasi di sandbox; pembatalan dan pengembalian dapat diuji</td></tr>
-<tr><td style="white-space:nowrap">MS-05 · akhir M6</td><td>Penyerahan dan laporan terintegrasi; omzet dapat ditelusuri ke transaksi</td></tr>
-<tr><td style="white-space:nowrap">MS-06 · akhir M7</td><td>Skenario penerimaan wajib lulus, tanpa kesalahan inti terbuka</td></tr>
-<tr><td style="white-space:nowrap">MS-07 · akhir M8</td><td>Paket aplikasi uji dan dokumen siap diserahkan</td></tr>
-</table>
-<p class="note">Semua milestone adalah target rencana, belum tercapai.</p>
-<div class="foot"><span><b>Penjadwalan Proyek Kantin FT</b></span><span><b>10</b> / 12</span></div>
+  <svg class="sh" style="right:42px;top:-6px" width="110" height="90" viewBox="0 0 110 90" fill="none">
+    <polygon points="56,0 98,64 84,64 56,0" fill="#FFFFFF" stroke="#1F1E33" stroke-width="1"/>
+    <polygon points="14,64 56,0 84,64" fill="#5B4BE0" stroke="#1F1E33" stroke-width="1"/>
+  </svg>
+  <h2>Milestone dan kriteria pencapaian</h2>
+  <p class="sub">Setiap milestone punya hasil yang dapat diperiksa, bukan sekadar akhir minggu</p>
+  <table>
+    <tr><th style="width:220px;white-space:nowrap">Target</th><th>Kriteria tercapai</th></tr>
+    <tr><td style="white-space:nowrap">MS-01 · akhir M1</td><td>Kebutuhan, platform, dan kelayakan pembayaran ditinjau</td></tr>
+    <tr><td style="white-space:nowrap">MS-02 · akhir M2</td><td>Rancangan mobile, basis data, dan fondasi akun tersedia</td></tr>
+    <tr><td style="white-space:nowrap">MS-03 · akhir M4</td><td>Alur pemesanan dasar terhubung ke layanan sebenarnya</td></tr>
+    <tr><td style="white-space:nowrap">MS-04 · akhir M5</td><td>QRIS dan transfer terkonfirmasi di sandbox; pembatalan dan pengembalian dapat diuji</td></tr>
+    <tr><td style="white-space:nowrap">MS-05 · akhir M6</td><td>Penyerahan dan laporan terintegrasi; omzet dapat ditelusuri ke transaksi</td></tr>
+    <tr><td style="white-space:nowrap">MS-06 · akhir M7</td><td>Skenario penerimaan wajib lulus, tanpa kesalahan inti terbuka</td></tr>
+    <tr><td style="white-space:nowrap">MS-07 · akhir M8</td><td>Paket aplikasi uji dan dokumen siap diserahkan</td></tr>
+  </table>
+  <p class="note">Semua milestone adalah target rencana, belum tercapai.</p>
+  <div class="foot"><span><b>Penjadwalan Proyek Kantin FT</b></span><span><b>10</b> / 12</span></div>
 </section>
 
 <!-- 11 RISIKO -->
 <section class="slide">
-<div class="sh dot" style="--s:44px;--c:var(--green);right:64px;top:40px"></div>
-<h2>Risiko dan pemantauan jadwal</h2>
-<p class="sub">Pemantauan mingguan jika proyek dilaksanakan</p>
-<table>
-<tr><th>Risiko</th><th>Dampak</th><th>Penanganan</th></tr>
-<tr><td>Pembayaran atau pengembalian tidak sesuai asumsi</td><td>Integrasi dan uji tertunda</td><td>Periksa di T03 (M1), bukti dasar di T16 (M4)</td></tr>
-<tr><td>Kapasitas atau kemampuan tim berbeda</td><td>Aktivitas meleset</td><td>Tinjau beban mingguan, sesuaikan penugasan</td></tr>
-<tr><td>Kebutuhan bertambah</td><td>Effort naik, milestone bergeser</td><td>Hitung dampak sebelum mengubah lingkup</td></tr>
-</table>
-<div class="row" style="margin-top:22px">
-<div class="card" style="flex:1;text-align:center">Belum dimulai</div>
-<div class="card" style="flex:1;text-align:center">Dikerjakan</div>
-<div class="card" style="flex:1;text-align:center">Ditinjau</div>
-<div class="card" style="flex:1;text-align:center;border-color:var(--green)">Selesai</div>
-</div>
-<p class="note">Selesai berarti hasil tersedia dan pemeriksaan lulus. Jika terlambat, tinjau aktivitas yang bergantung padanya lalu hitung ulang sisa effort.</p>
-<div class="foot"><span><b>Penjadwalan Proyek Kantin FT</b></span><span><b>11</b> / 12</span></div>
+  <svg class="sh" style="right:42px;top:24px" width="90" height="84" viewBox="0 0 90 84" fill="none">
+    <circle cx="52" cy="40" r="24" fill="#FFFFFF" stroke="#1F1E33" stroke-width="1"/>
+    <circle cx="44" cy="40" r="24" fill="#2DE07A" stroke="#1F1E33" stroke-width="1"/>
+  </svg>
+  <h2>Risiko dan pemantauan jadwal</h2>
+  <p class="sub">Pemantauan mingguan jika proyek dilaksanakan</p>
+  <table>
+    <tr><th>Risiko</th><th>Dampak</th><th>Penanganan</th></tr>
+    <tr><td>Pembayaran atau pengembalian tidak sesuai asumsi</td><td>Integrasi dan uji tertunda</td><td>Periksa di T03 (M1), bukti dasar di T16 (M4)</td></tr>
+    <tr><td>Kapasitas atau kemampuan tim berbeda</td><td>Aktivitas meleset</td><td>Tinjau beban mingguan, sesuaikan penugasan</td></tr>
+    <tr><td>Kebutuhan bertambah</td><td>Effort naik, milestone bergeser</td><td>Hitung dampak sebelum mengubah lingkup</td></tr>
+  </table>
+  <div class="row" style="margin-top:22px">
+    <div class="card status-card">Belum dimulai</div>
+    <div class="card status-card" style="border-top-color:var(--yellow)">Dikerjakan</div>
+    <div class="card status-card" style="border-top-color:var(--purple)">Ditinjau</div>
+    <div class="card status-card" style="border-top-color:var(--green)">Selesai</div>
+  </div>
+  <p class="note">Selesai berarti hasil tersedia dan pemeriksaan lulus. Jika terlambat, tinjau aktivitas yang bergantung padanya lalu hitung ulang sisa effort.</p>
+  <div class="foot"><span><b>Penjadwalan Proyek Kantin FT</b></span><span><b>11</b> / 12</span></div>
 </section>
 
 <!-- 12 PENUTUP -->
 <section class="slide">
-<div class="sh tri" style="--s:70px;--c:var(--purple);right:90px;top:-20px"></div>
-<div class="sh dot" style="--s:90px;--c:var(--coral);right:-20px;bottom:-30px"></div>
-<h2>Kriteria keberhasilan dan luaran tugas</h2>
-<p class="sub">Pemeriksaan yang direncanakan pada skenario pengembangan</p>
-<div class="grid g2">
-<div class="card bar"><p>Pesanan sesuai tenant, menu, dan ketersediaan porsi.</p></div>
-<div class="card bar" style="border-top-color:var(--coral)"><p>Kedua metode pembayaran menghasilkan konfirmasi yang benar.</p></div>
-<div class="card bar" style="border-top-color:var(--yellow)"><p>Pembatalan sebelum persiapan mengikuti aturan pengembalian penuh.</p></div>
-<div class="card bar" style="border-top-color:var(--green)"><p>Omzet hanya memuat pesanan yang dibayar dan diserahkan.</p></div>
-</div>
-<div class="card" style="margin-top:20px;background:var(--navy);color:#fff;border:0"><b>Luaran tugas</b>
-<p>Dokumen kebutuhan ringkas, WBS, estimasi, jadwal, Gantt chart, milestone, serta rencana pemeriksaan dan risiko.</p></div>
-<p class="note">Terima kasih. Pertanyaan?</p>
-<div class="foot"><span><b>Penjadwalan Proyek Kantin FT</b></span><span><b>12</b> / 12</span></div>
+  <svg class="sh" style="right:48px;top:-12px" width="145" height="125" viewBox="0 0 145 125" fill="none">
+    <polygon points="72,0 134,94 116,94 72,0" fill="#FFFFFF" stroke="#1F1E33" stroke-width="1"/>
+    <polygon points="10,94 72,0 116,94" fill="#5B4BE0" stroke="#1F1E33" stroke-width="1"/>
+    <circle cx="128" cy="108" r="7" stroke="#FFB41C" stroke-width="1.5"/>
+  </svg>
+  <svg class="sh" style="right:-24px;bottom:-24px" width="135" height="135" viewBox="0 0 135 135" fill="none">
+    <circle cx="80" cy="76" r="46" fill="#FFFFFF" stroke="#1F1E33" stroke-width="1"/>
+    <circle cx="70" cy="76" r="46" fill="#FF6868" stroke="#1F1E33" stroke-width="1"/>
+  </svg>
+  <h2>Kriteria keberhasilan dan luaran tugas</h2>
+  <p class="sub">Pemeriksaan yang direncanakan pada skenario pengembangan</p>
+  <div class="grid g2">
+    <div class="card bar"><p>Pesanan sesuai tenant, menu, dan ketersediaan porsi.</p></div>
+    <div class="card bar" style="border-top-color:var(--coral)"><p>Kedua metode pembayaran menghasilkan konfirmasi yang benar.</p></div>
+    <div class="card bar" style="border-top-color:var(--yellow)"><p>Pembatalan sebelum persiapan mengikuti aturan pengembalian penuh.</p></div>
+    <div class="card bar" style="border-top-color:var(--green)"><p>Omzet hanya memuat pesanan yang dibayar dan diserahkan.</p></div>
+  </div>
+  <div class="card" style="margin-top:20px;background:var(--navy);color:#fff;border:0;box-shadow:0 10px 24px rgba(13,12,74,.18)"><b>Luaran tugas</b>
+  <p>Dokumen kebutuhan ringkas, WBS, estimasi, jadwal, Gantt chart, milestone, serta rencana pemeriksaan dan risiko.</p></div>
+  <p class="note">Terima kasih. Pertanyaan?</p>
+  <div class="foot"><span><b>Penjadwalan Proyek Kantin FT</b></span><span><b>12</b> / 12</span></div>
 </section>
 
 </div>
-<script>(function(){function f(){var z=Math.min(1.5,(innerWidth-48)/1280);document.querySelectorAll('.slide').forEach(function(e){e.style.zoom=z})}addEventListener('resize',f);f();matchMedia('print').addListener(function(m){document.querySelectorAll('.slide').forEach(function(e){e.style.zoom=m.matches?1:Math.min(1.5,(innerWidth-48)/1280)})})})();</script>
+<script>(function(){function applyScale(isPrint){var z=isPrint?1:Math.min(1.5,Math.max(0.2,(innerWidth-48)/1280));document.querySelectorAll('.slide').forEach(function(e){if(isPrint){e.style.transform='';e.style.transformOrigin='';e.style.marginBottom='';}else{e.style.transformOrigin='top center';e.style.transform='scale('+z+')';e.style.marginBottom=((z-1)*720)+'px';}})}function f(){applyScale(false)}addEventListener('resize',f);f();matchMedia('print').addListener(function(m){applyScale(m.matches)})})();</script>
 </body>
 </html>
