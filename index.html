@@ -33,7 +33,18 @@ body{font-family:Poppins,"Segoe UI",Arial,sans-serif;color:var(--navy);-webkit-p
   .slide.active{display:block;animation:slideIn .34s cubic-bezier(.22,1,.36,1) both}
   .slide.active h1,.slide.active h2{animation:animUp .38s cubic-bezier(.22,1,.36,1) .04s both}
   .slide.active .sub,.slide.active .pill{animation:animUp .38s cubic-bezier(.22,1,.36,1) .09s both}
-  .slide.active .card,.slide.active table,.slide.active .chain,.slide.active .step{animation:animUp .4s cubic-bezier(.22,1,.36,1) .14s both}
+  .slide.active .card,.slide.active table,.slide.active .step{animation:animUp .4s cubic-bezier(.22,1,.36,1) .14s both}
+  .slide.active .chain>.par,.slide.active .chain>.nd{animation:animUp .38s cubic-bezier(.22,1,.36,1) .14s both}
+  .slide.active .chain>.ar{animation:arrowIn .28s ease-out .22s both}
+  .slide.active .chain>*:nth-child(3){animation-delay:.28s}
+  .slide.active .chain>*:nth-child(4){animation-delay:.36s}
+  .slide.active .chain>*:nth-child(5){animation-delay:.42s}
+  .slide.active .chain>*:nth-child(6){animation-delay:.50s}
+  .slide.active .chain>*:nth-child(7){animation-delay:.56s}
+  .slide.active .chain>*:nth-child(8){animation-delay:.64s}
+  .slide.active .chain>*:nth-child(9){animation-delay:.70s}
+  .slide.active .chain>*:nth-child(10){animation-delay:.78s}
+  .slide.active .chain>*:nth-child(11){animation-delay:.84s}
   .slide.active .grid>*:nth-child(2),.slide.active .row>*:nth-child(2){animation-delay:.18s}
   .slide.active .grid>*:nth-child(3),.slide.active .row>*:nth-child(3){animation-delay:.22s}
   .slide.active .grid>*:nth-child(4),.slide.active .row>*:nth-child(4){animation-delay:.26s}
@@ -80,6 +91,7 @@ body{font-family:Poppins,"Segoe UI",Arial,sans-serif;color:var(--navy);-webkit-p
 @keyframes popIn{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
 @keyframes growX{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 @keyframes revealX{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes arrowIn{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:translateX(0)}}
 
 /* Subtle architectural wireframe background rects like ui-design.png */
 .wf-box{
@@ -370,9 +382,9 @@ td.c,th.c{text-align:center}
   <h2>Ketergantungan aktivitas</h2>
   <p class="sub" style="margin-bottom:16px">Rantai utama yang dipantau: alur aktivitas krusial dari pengecekan penyedia pembayaran dan pemesanan hingga pengujian akhir. Keterlambatan di salah satu titik akan menggeser aktivitas berikutnya, sementara T19 dan T20 dikerjakan paralel pada M5.</p>
   <div class="chain" style="gap:8px">
-    <div class="par"><div class="nd" style="padding:8px 10px;font-size:14px"><b>T03 · M1 (C)</b>Cek penyedia pembayaran</div><div class="nd" style="padding:8px 10px;font-size:14px"><b>T12 · M3 (D)</b>Buat &amp; kunci pesanan</div></div><span class="ar">→</span>
+    <div class="par"><div class="nd" style="padding:8px 10px;font-size:14px"><b>T03 (M1, C)</b>Cek penyedia pembayaran</div><div class="nd" style="padding:8px 10px;font-size:14px"><b>T12 (M3, D)</b>Buat &amp; kunci pesanan</div></div><span class="ar">→</span>
     <div class="nd"><b>T16</b>Integrasi pembayaran<br>M4</div><span class="ar">→</span>
-    <div class="par"><div class="nd p2"><b>T19</b>Konfirmasi dan batal · M5</div><div class="nd p2"><b>T20</b>Pengembalian dana · M5</div></div><span class="ar">→</span>
+    <div class="par"><div class="nd p2"><b>T19</b>Konfirmasi dan batal (M5)</div><div class="nd p2"><b>T20</b>Pengembalian dana (M5)</div></div><span class="ar">→</span>
     <div class="nd"><b>T21</b>Uji pembayaran<br>M6</div><span class="ar">→</span>
     <div class="nd"><b>T25</b>Uji penerimaan<br>M7</div><span class="ar">→</span>
     <div class="nd"><b>T31 → T32</b>Uji regresi &amp; build final<br>M8</div>
