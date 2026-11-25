@@ -57,15 +57,13 @@ td.n,th.n{text-align:right}td.c,th.c{text-align:center}
 
 <!-- 1 JUDUL -->
 <section class="slide">
+<img src="first-page.png" alt="Ilustrasi penjadwalan proyek" style="position:absolute;right:0;bottom:0;height:595px;width:auto;pointer-events:none;mix-blend-mode:multiply;z-index:1">
 <div class="sh tri" style="--s:70px;--c:var(--purple);left:36px;top:-20px"></div>
 <div class="sh dot" style="--s:100px;--c:var(--coral);left:56px;bottom:-40px"></div>
 <div class="sh dot" style="--s:70px;--c:var(--green);left:-28px;bottom:50px"></div>
-<div class="sh ring" style="--s:84px;--c:var(--purple);right:130px;top:36px"></div>
-<div class="sh sq" style="--s:104px;--c:var(--yellow);right:44px;top:100px"></div>
-<div class="sh tri" style="--s:52px;--c:var(--sky);right:80px;bottom:60px"></div>
-<div style="position:absolute;left:84px;top:50px"><b style="font-size:26px">Software Scheduling</b><br><span style="font-size:20px;font-weight:300">26 November 2026</span></div>
-<div style="position:absolute;left:80px;top:200px;width:760px">
-<h1>Penjadwalan Proyek pada<span>Aplikasi Kantin FT</span></h1>
+<div style="position:absolute;left:84px;top:50px;z-index:2"><b style="font-size:26px">Software Scheduling</b><br><span style="font-size:20px;font-weight:300">26 November 2026</span></div>
+<div style="position:absolute;left:80px;top:185px;width:540px;z-index:2">
+<h1 style="font-size:64px">Penjadwalan Proyek pada<span>Aplikasi Kantin FT</span></h1>
 <div class="pill" style="font-size:15px;padding:14px 28px;border-radius:24px;line-height:1.55;text-align:left"><b>Kelompok:</b><br>- Nathanael Satya Saputra (24/534424/TK/59236)<br>- Natanael Sebastian Simanjuntak (24/542676/TK/60273)<br>- Aston Hugo (24/538303/TK/59700)</div>
 </div>
 </section>
@@ -73,6 +71,8 @@ td.n,th.n{text-align:right}td.c,th.c{text-align:center}
 <!-- 2 KEBUTUHAN -->
 <section class="slide">
 <div class="sh tri" style="--s:40px;--c:var(--purple);right:70px;top:-10px"></div>
+<div class="sh dot" style="--s:56px;--c:var(--yellow);left:-24px;bottom:78px"></div>
+<div class="sh ring" style="--s:46px;--c:var(--coral);right:-18px;bottom:86px"></div>
 <h2>Kebutuhan dan batas proyek</h2>
 <p class="sub"><b>Rencana rancangan:</b> Aplikasi mobile pemesanan makanan untuk kantin di lingkungan Fakultas Teknik</p>
 <div class="grid g3">
@@ -86,12 +86,15 @@ td.n,th.n{text-align:right}td.c,th.c{text-align:center}
 <div class="card"><b>Asumsi: Perolehan Omzet</b>
 <p>Omzet yang didapat hanya merupakan pesanan yang sudah dibayar dan diserahkan pada customer.</p></div>
 </div>
+<div class="card" style="margin-top:16px;padding:13px 20px;border-left:5px solid var(--purple)"><p style="font-size:16.5px;line-height:1.45"><b>Batas lingkup:</b> Proyek dirancang untuk satu platform mobile di kantin FT. Pesanan hanya berlaku untuk satu tenant untuk tiap transaksi dan makanan diambil langsung di tenant oleh pembeli (tanpa layanan antar atau kurir).</p></div>
 <div class="foot"><span><b>Penjadwalan Proyek Kantin FT</b></span><span><b>02</b> / 13</span></div>
 </section>
 
 <!-- 3 FITUR -->
 <section class="slide">
 <div class="sh dot" style="--s:46px;--c:var(--green);right:60px;top:40px"></div>
+<div class="sh tri" style="--s:34px;--c:var(--sky);left:-10px;bottom:76px"></div>
+<div class="sh ring" style="--s:44px;--c:var(--purple);right:-16px;bottom:90px"></div>
 <h2>Kelompok fitur dan aktivitas di jadwal</h2>
 <p class="sub">Setiap kelompok fitur dijabarkan menjadi aktivitas T01–T32</p>
 <table>
@@ -99,9 +102,9 @@ td.n,th.n{text-align:right}td.c,th.c{text-align:center}
 <tr><td>Semua</td><td>Akun, hak akses, pengelolaan akun</td><td>T07, T10, T11</td></tr>
 <tr><td>Pembeli</td><td>Katalog kantin, tenant, dan menu</td><td>T10, T11</td></tr>
 <tr><td>Pembeli</td><td>Keranjang, pesanan, stok, riwayat</td><td>T12, T14, T19</td></tr>
-<tr><td>Pembeli</td><td>Pembayaran QRIS dan transfer</td><td>T16, T18, T19</td></tr>
+<tr><td>Pembeli &amp; Sistem</td><td>Pembayaran QRIS/transfer, pembatalan</td><td>T16, T18, T19</td></tr>
 <tr><td>Tenant</td><td>Antrean, status pesanan, penyerahan</td><td>T15, T18, T24</td></tr>
-<tr><td>Pengelola</td><td>Pembatalan, pengembalian dana, riwayat</td><td>T20, T22, T24</td></tr>
+<tr><td>Pengelola</td><td>Akun tenant &amp; tindak lanjut pengembalian dana</td><td>T20, T22, T24</td></tr>
 <tr><td>Tenant</td><td>Laporan omzet harian dan rincian</td><td>T22, T23</td></tr>
 </table>
 <div class="foot"><span><b>Penjadwalan Proyek Kantin FT</b></span><span><b>03</b> / 13</span></div>
@@ -109,7 +112,9 @@ td.n,th.n{text-align:right}td.c,th.c{text-align:center}
 
 <!-- 4 DASAR -->
 <section class="slide">
-<div class="sh tri" style="--s:36px;--c:var(--sky);right:90px;bottom:50px"></div>
+<div class="sh tri" style="--s:36px;--c:var(--sky);right:90px;bottom:74px"></div>
+<div class="sh ring" style="--s:62px;--c:var(--purple);right:60px;top:34px"></div>
+<div class="sh dot" style="--s:54px;--c:var(--coral);left:-24px;bottom:76px"></div>
 <h2>Dasar penyusunan jadwal</h2>
 <p class="sub">Penyusunan jadwal atau scheduling dilakukan dengan pengembangan bertahap dengan tinjauan tiap minggu. Adapun dasar dari penyusunan jadwal yakni sebagai berikut.</p>
 <div class="row" style="margin-top:30px">
@@ -126,6 +131,7 @@ td.n,th.n{text-align:right}td.c,th.c{text-align:center}
 <!-- 5 TIM -->
 <section class="slide">
 <div class="sh ring" style="--s:60px;--c:var(--purple);right:70px;top:36px"></div>
+<div class="sh dot" style="--s:46px;--c:var(--yellow);left:-20px;bottom:84px"></div>
 <h2>Tim, kapasitas, dan estimasi effort</h2>
 <p class="sub">Asumsi skenario: 4 anggota, 8 minggu, 10 jam per anggota per minggu</p>
 <div class="grid g3" style="margin-bottom:20px">
@@ -146,6 +152,7 @@ td.n,th.n{text-align:right}td.c,th.c{text-align:center}
 <!-- 6 WBS -->
 <section class="slide">
 <div class="sh tri" style="--s:36px;--c:var(--coral);right:80px;top:-6px"></div>
+<div class="sh ring" style="--s:46px;--c:var(--green);left:-20px;bottom:90px"></div>
 <h2>WBS dan alokasi effort</h2>
 <p class="sub">Seluruh pekerjaan proyek dibagi ke dalam tujuh paket WBS dengan total estimasi 256 jam-orang.</p>
 <table>
@@ -165,15 +172,16 @@ td.n,th.n{text-align:right}td.c,th.c{text-align:center}
 <!-- 7 KETERGANTUNGAN -->
 <section class="slide">
 <div class="sh dot" style="--s:40px;--c:var(--yellow);right:70px;top:40px"></div>
+<div class="sh tri" style="--s:32px;--c:var(--sky);left:-8px;bottom:82px"></div>
 <h2>Ketergantungan aktivitas</h2>
 <p class="sub" style="margin-bottom:16px">Rantai utama yang dipantau: alur aktivitas krusial dari pengecekan penyedia pembayaran dan pemesanan hingga pengujian akhir. Keterlambatan di salah satu titik akan menggeser aktivitas berikutnya, sementara T19 dan T20 dikerjakan paralel pada M5.</p>
-<div class="chain">
-<div class="nd"><b>T03 · T12</b>Cek penyedia dan pesanan<br>M1 · M3</div><span class="ar">→</span>
+<div class="chain" style="gap:8px">
+<div class="par"><div class="nd" style="padding:8px 10px;font-size:14px"><b>T03 · M1 (C)</b>Cek penyedia pembayaran</div><div class="nd" style="padding:8px 10px;font-size:14px"><b>T12 · M3 (D)</b>Buat &amp; kunci pesanan.</div></div><span class="ar">→</span>
 <div class="nd"><b>T16</b>Integrasi pembayaran<br>M4</div><span class="ar">→</span>
 <div class="par"><div class="nd p2"><b>T19</b>Konfirmasi dan batal · M5</div><div class="nd p2"><b>T20</b>Pengembalian dana · M5</div></div><span class="ar">→</span>
 <div class="nd"><b>T21</b>Uji pembayaran<br>M6</div><span class="ar">→</span>
 <div class="nd"><b>T25</b>Uji penerimaan<br>M7</div><span class="ar">→</span>
-<div class="nd"><b>T31 → T32</b>Regresi lalu paket uji<br>M8</div>
+<div class="nd"><b>T31 → T32</b>Uji regresi &amp; build final<br>M8</div>
 </div>
 <table>
 <tr><th>ID</th><th>Aktivitas</th><th>PIC</th><th class="n">Jam</th><th>Waktu</th><th>Pendahulu</th></tr>
@@ -188,6 +196,7 @@ td.n,th.n{text-align:right}td.c,th.c{text-align:center}
 <!-- 8 GANTT -->
 <section class="slide">
 <div class="sh tri" style="--s:34px;--c:var(--green);right:70px;top:-6px"></div>
+<div class="sh dot" style="--s:50px;--c:var(--yellow);right:-22px;bottom:82px"></div>
 <h2>Gantt chart skenario delapan minggu</h2>
 <table class="gt" style="margin-top:14px">
 <tr><th style="width:330px">Paket WBS</th><th class="c">M1</th><th class="c">M2</th><th class="c">M3</th><th class="c">M4</th><th class="c">M5</th><th class="c">M6</th><th class="c">M7</th><th class="c">M8</th></tr>
@@ -211,6 +220,7 @@ td.n,th.n{text-align:right}td.c,th.c{text-align:center}
 <!-- 9 BEBAN -->
 <section class="slide">
 <div class="sh ring" style="--s:54px;--c:var(--coral);right:70px;top:34px"></div>
+<div class="sh tri" style="--s:30px;--c:var(--purple);left:-8px;bottom:84px"></div>
 <h2>Beban kerja per anggota per minggu</h2>
 <p class="sub">Satuan jam-orang. Batas jam kerja untuk tiap anggota diasumsikan 10 jam per minggu.</p>
 <table>
@@ -232,6 +242,7 @@ td.n,th.n{text-align:right}td.c,th.c{text-align:center}
 <!-- 10 MILESTONE -->
 <section class="slide">
 <div class="sh tri" style="--s:34px;--c:var(--purple);right:80px;top:-6px"></div>
+<div class="sh dot" style="--s:48px;--c:var(--sky);left:-20px;bottom:86px"></div>
 <h2>Milestone dan kriteria pencapaian</h2>
 <p class="sub">Berikut merupakan milestone yang direncanakan untuk tiap minggu.</p>
 <table>
@@ -251,6 +262,7 @@ td.n,th.n{text-align:right}td.c,th.c{text-align:center}
 <!-- 11 RISIKO -->
 <section class="slide">
 <div class="sh dot" style="--s:44px;--c:var(--green);right:64px;top:40px"></div>
+<div class="sh ring" style="--s:50px;--c:var(--yellow);right:-22px;bottom:84px"></div>
 <h2>Risiko dan pemantauan jadwal</h2>
 <p class="sub">Adapun pemantauan mingguan yang direncanakan pada pelaksanaan proyek sebagai berikut.</p>
 <table>
@@ -273,6 +285,7 @@ td.n,th.n{text-align:right}td.c,th.c{text-align:center}
 <section class="slide">
 <div class="sh tri" style="--s:56px;--c:var(--purple);right:90px;top:-14px"></div>
 <div class="sh dot" style="--s:64px;--c:var(--coral);right:-18px;bottom:-20px"></div>
+<div class="sh ring" style="--s:42px;--c:var(--sky);left:-18px;bottom:88px"></div>
 <h2>Kriteria keberhasilan</h2>
 <p class="sub">Pemeriksaan yang direncanakan pada skenario pengembangan</p>
 <div class="grid g2" style="gap:24px;margin-top:24px;height:405px;grid-template-rows:repeat(2,1fr)">
