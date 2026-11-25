@@ -40,6 +40,20 @@ body{font-family:Poppins,"Segoe UI",Arial,sans-serif;color:var(--navy);-webkit-p
   .slide.active .row>*:nth-child(5){animation-delay:.3s}
   .slide.active .note{animation:animUp .38s cubic-bezier(.22,1,.36,1) .24s both}
   .slide.active .sh{animation:popIn .45s ease-out .06s both}
+  .slide.active .g{transform-origin:left center;animation:growX .65s cubic-bezier(.22,1,.36,1) .18s both}
+  .slide.active tr:nth-child(3) .g{animation-delay:.24s}
+  .slide.active tr:nth-child(4) .g{animation-delay:.30s}
+  .slide.active tr:nth-child(5) .g{animation-delay:.36s}
+  .slide.active tr:nth-child(6) .g{animation-delay:.42s}
+  .slide.active tr:nth-child(7) .g{animation-delay:.48s}
+  .slide.active tr:nth-child(8) .g{animation-delay:.54s}
+  .slide.active .gt .p{animation:revealX .55s cubic-bezier(.22,1,.36,1) .16s both}
+  .slide.active .gt tr:nth-child(3) .p{animation-delay:.24s}
+  .slide.active .gt tr:nth-child(4) .p{animation-delay:.32s}
+  .slide.active .gt tr:nth-child(5) .p{animation-delay:.40s}
+  .slide.active .gt tr:nth-child(6) .p{animation-delay:.48s}
+  .slide.active .gt tr:nth-child(7) .p{animation-delay:.56s}
+  .slide.active .gt tr:nth-child(8) .p{animation-delay:.64s}
   .deckwrap.overview{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px;padding:32px 32px 96px;height:100vh;overflow-y:auto;align-items:start;justify-items:center}
   .deckwrap.overview .slide{display:block;zoom:.25;transform:none!important;cursor:pointer;border:4px solid transparent;transition:border-color .15s,transform .15s}
   .deckwrap.overview .slide.active{border-color:var(--coral);animation:none}
@@ -58,12 +72,14 @@ body{font-family:Poppins,"Segoe UI",Arial,sans-serif;color:var(--navy);-webkit-p
   html,body{height:auto!important;overflow:visible!important;background:transparent!important}
   .deckwrap{display:block!important;width:auto!important;height:auto!important;padding:0!important}
   .slide{display:block!important;transform:none!important;zoom:1!important;border-radius:0!important;box-shadow:none!important;animation:none!important}
-  .slide *{animation:none!important;opacity:1!important;transform:none!important}
+  .slide *{animation:none!important;opacity:1!important;transform:none!important;clip-path:none!important}
   .hud,.prog{display:none!important}
 }
 @keyframes slideIn{from{opacity:0;transform:scale(var(--sc,1)) translateY(12px)}to{opacity:1;transform:scale(var(--sc,1)) translateY(0)}}
 @keyframes animUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 @keyframes popIn{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
+@keyframes growX{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes revealX{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
 
 /* Subtle architectural wireframe background rects like ui-design.png */
 .wf-box{
@@ -331,14 +347,14 @@ td.c,th.c{text-align:center}
   <p class="sub">Seluruh pekerjaan proyek dibagi ke dalam tujuh paket WBS dengan total estimasi 256 jam-orang.</p>
   <table>
     <tr><th>Paket pekerjaan</th><th class="n" style="width:110px">Jam-orang</th><th style="width:300px">Proporsi</th></tr>
-    <tr><td>1. Kebutuhan, aturan bisnis, kelayakan pembayaran</td><td class="n">38</td><td><div class="g-track"><div class="g" style="width:67%"></div></div></td></tr>
-    <tr><td>2. Rancangan dan fondasi mobile serta backend</td><td class="n">24</td><td><div class="g-track"><div class="g" style="width:43%"></div></div></td></tr>
-    <tr><td>3. Akun, katalog, stok, dan pemesanan</td><td class="n">56</td><td><div class="g-track"><div class="g" style="width:100%"></div></div></td></tr>
-    <tr><td>4. Pembayaran, pembatalan, pengembalian</td><td class="n">56</td><td><div class="g-track"><div class="g coral" style="width:100%;background:var(--coral)"></div></div></td></tr>
-    <tr><td>5. Laporan, penyerahan, riwayat transaksi</td><td class="n">26</td><td><div class="g-track"><div class="g" style="width:46%"></div></div></td></tr>
-    <tr><td>6. Integrasi, pengujian penerimaan, perbaikan</td><td class="n">34</td><td><div class="g-track"><div class="g" style="width:61%"></div></div></td></tr>
-    <tr><td>7. Paket aplikasi uji, backend, dan dokumen</td><td class="n">22</td><td><div class="g-track"><div class="g" style="width:39%"></div></div></td></tr>
-    <tr><td><b>Total</b></td><td class="n"><b>256</b></td><td></td></tr>
+    <tr><td>1. Kebutuhan, aturan bisnis, kelayakan pembayaran</td><td class="n" data-count="38">38</td><td><div class="g-track"><div class="g" style="width:67%"></div></div></td></tr>
+    <tr><td>2. Rancangan dan fondasi mobile serta backend</td><td class="n" data-count="24">24</td><td><div class="g-track"><div class="g" style="width:43%"></div></div></td></tr>
+    <tr><td>3. Akun, katalog, stok, dan pemesanan</td><td class="n" data-count="56">56</td><td><div class="g-track"><div class="g" style="width:100%"></div></div></td></tr>
+    <tr><td>4. Pembayaran, pembatalan, pengembalian</td><td class="n" data-count="56">56</td><td><div class="g-track"><div class="g coral" style="width:100%;background:var(--coral)"></div></div></td></tr>
+    <tr><td>5. Laporan, penyerahan, riwayat transaksi</td><td class="n" data-count="26">26</td><td><div class="g-track"><div class="g" style="width:46%"></div></div></td></tr>
+    <tr><td>6. Integrasi, pengujian penerimaan, perbaikan</td><td class="n" data-count="34">34</td><td><div class="g-track"><div class="g" style="width:61%"></div></div></td></tr>
+    <tr><td>7. Paket aplikasi uji, backend, dan dokumen</td><td class="n" data-count="22">22</td><td><div class="g-track"><div class="g" style="width:39%"></div></div></td></tr>
+    <tr><td><b>Total</b></td><td class="n"><b data-count="256">256</b></td><td></td></tr>
   </table>
   <div class="foot"><span><b>Penjadwalan Proyek Kantin FT</b></span><span><b>06</b> / 13</span></div>
 </section>
@@ -478,16 +494,14 @@ td.c,th.c{text-align:center}
     <circle cx="80" cy="76" r="46" fill="#FFFFFF" stroke="#1F1E33" stroke-width="1"/>
     <circle cx="70" cy="76" r="46" fill="#FF6868" stroke="#1F1E33" stroke-width="1"/>
   </svg>
-  <h2>Kriteria keberhasilan dan luaran tugas</h2>
+  <h2>Kriteria keberhasilan</h2>
   <p class="sub">Pemeriksaan yang direncanakan pada skenario pengembangan</p>
-  <div class="grid g2">
-    <div class="card bar"><b>Ketepatan pesanan</b><p>Pesanan sesuai tenant, menu, dan ketersediaan porsi.</p></div>
-    <div class="card bar" style="border-top-color:var(--coral)"><b>Verifikasi pembayaran</b><p>Kedua metode pembayaran menghasilkan konfirmasi yang benar.</p></div>
-    <div class="card bar" style="border-top-color:var(--yellow)"><b>Aturan pembatalan</b><p>Pembatalan sebelum persiapan mengikuti aturan pengembalian dana penuh.</p></div>
-    <div class="card bar" style="border-top-color:var(--green)"><b>Akurasi omzet</b><p>Omzet hanya memuat pesanan yang sudah dibayar dan diserahkan.</p></div>
+  <div class="grid g2" style="gap:24px;margin-top:24px;height:405px;grid-template-rows:repeat(2,1fr)">
+    <div class="card bar" style="padding:26px 28px;display:flex;flex-direction:column;justify-content:center"><b style="font-size:21px;margin-bottom:8px">Ketepatan pesanan</b><p style="font-size:19px">Pesanan sesuai tenant, menu, dan ketersediaan porsi.</p></div>
+    <div class="card bar" style="border-top-color:var(--coral);padding:26px 28px;display:flex;flex-direction:column;justify-content:center"><b style="font-size:21px;margin-bottom:8px">Verifikasi pembayaran</b><p style="font-size:19px">Kedua metode pembayaran menghasilkan konfirmasi yang benar.</p></div>
+    <div class="card bar" style="border-top-color:var(--yellow);padding:26px 28px;display:flex;flex-direction:column;justify-content:center"><b style="font-size:21px;margin-bottom:8px">Aturan pembatalan</b><p style="font-size:19px">Pembatalan sebelum persiapan mengikuti aturan pengembalian dana penuh.</p></div>
+    <div class="card bar" style="border-top-color:var(--green);padding:26px 28px;display:flex;flex-direction:column;justify-content:center"><b style="font-size:21px;margin-bottom:8px">Akurasi omzet</b><p style="font-size:19px">Omzet hanya memuat pesanan yang sudah dibayar dan diserahkan.</p></div>
   </div>
-  <div class="card" style="margin-top:18px;background:var(--navy);color:#fff;border:0;box-shadow:0 10px 24px rgba(13,12,74,.18)"><b>Luaran tugas</b>
-  <p>Dokumen kebutuhan ringkas, WBS, estimasi, jadwal, Gantt chart, milestone, serta rencana pemeriksaan dan risiko.</p></div>
   <div class="foot"><span><b>Penjadwalan Proyek Kantin FT</b></span><span><b>12</b> / 13</span></div>
 </section>
 
